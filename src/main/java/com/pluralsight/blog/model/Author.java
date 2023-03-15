@@ -21,31 +21,8 @@ public class Author {
     private String username;
     private String password;
 
-    @OneToMany()
-    private List<Post> posts;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Author author;
-
-    public Author(List<Post> posts) {
-        super();
-    }
-
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
-    }
-
     public Author() {
         super();
-    }
-
-
-    public Author getAuthor() {
-        return author;
-    }
-
-
-    public void setAuthor(Author author) {
-        this.author = author;
     }
 
     public Author(String username, String firstname, String lastname, String password) {
@@ -107,11 +84,5 @@ public class Author {
         return true;
     }
 
-    public List<Post> getPosts() {
-        return null;
-    }
 
-    public void addPost(Post post) {
-        return;
-    }
 }

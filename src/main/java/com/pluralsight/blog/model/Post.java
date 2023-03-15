@@ -25,6 +25,32 @@ public class Post {
     @CreationTimestamp
     private Date date;
 
+    @OneToMany()
+    private List<Post> posts;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Author author;
+
+    public Post(Author author) {
+        this.author = author;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
     public Post() {
         super();
     }
@@ -71,6 +97,7 @@ public class Post {
     public void setDate(Date date) {
         this.date = date;
     }
+    public void addPost(Post post){return;}
 
     @Override
     public boolean equals(Object obj) {
@@ -80,4 +107,6 @@ public class Post {
         return this.title.equals(otherPost.getTitle()) &&
                this.body.equals(otherPost.getBody());
     }
+
+
 }
